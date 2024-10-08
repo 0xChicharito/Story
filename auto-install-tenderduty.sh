@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Hàm yêu cầu người dùng nhập thông tin
+prompt() {
+    read -p "$1: " input
+    echo "$input"
+}
+
 # Step 1: Update and Upgrade
 echo "Updating and upgrading system..."
 sudo apt update && sudo apt upgrade -y
@@ -14,7 +20,7 @@ sudo su - $USERNAME << EOF
 
 # Step 3: Install Go
 echo "Installing Go..."
-ver="1.20.6"
+ver="1.22.4"
 cd $HOME
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz"
 sudo rm -rf /usr/local/go
